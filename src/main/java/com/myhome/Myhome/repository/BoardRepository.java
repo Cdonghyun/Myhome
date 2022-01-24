@@ -1,4 +1,4 @@
-package com.myhome.Myhome.repsitory;
+package com.myhome.Myhome.repository;
 
 import com.myhome.Myhome.model.Board;
 import org.springframework.data.domain.Page;

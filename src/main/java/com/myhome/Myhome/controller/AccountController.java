@@ -1,4 +1,4 @@
-package com.myhome.Myhome.Controller;
+package com.myhome.Myhome.controller;
 
 import com.myhome.Myhome.model.User;
 import com.myhome.Myhome.service.UserService;

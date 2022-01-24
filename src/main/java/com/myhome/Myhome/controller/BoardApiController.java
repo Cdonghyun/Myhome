@@ -1,8 +1,8 @@
-package com.myhome.Myhome.Controller;
+package com.myhome.Myhome.controller;
 
 
 import com.myhome.Myhome.model.Board;
-import com.myhome.Myhome.repsitory.BoardRepository;
+import com.myhome.Myhome.repository.BoardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.thymeleaf.util.StringUtils;

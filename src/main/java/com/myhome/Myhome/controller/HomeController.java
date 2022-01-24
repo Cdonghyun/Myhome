@@ -1,4 +1,4 @@
-package com.myhome.Myhome.Controller;
+package com.myhome.Myhome.controller;
 
 
 import org.springframework.stereotype.Controller;
