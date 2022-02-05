@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html xmlns:th="http://www.thymeleaf.org"  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html xmlns:th="http://www.thymeleaf.org"  xmlns:sec="http://www.thymeleaf.org/extras/spring-security" >
 
 <head th:fragment="head(title)">
 
@@ -26,15 +26,21 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarsExampleDefault" >
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active" th:classappend="${menu == 'home'} ? 'active'">
+                <li class="nav-item " th:classappend="${menu == 'home'} ? 'active'">
                     <a class="nav-link "  href="#" th:href="@{/}">홈 <span class="sr-only" th:if="${menu} == 'home'"></span></a>
                 </li>
                 <li class="nav-item " th:classappend="${menu == 'home'} ? 'active'">
-                    <a class="nav-link " href="#" th:href="@{/board/list}">게시판 <span class="sr-only" th:if="${menu} == 'board'"/> </a>
+                    <a class="nav-link " href="#" th:href="@{/board/list}">게시판 <span class="sr-only" th:if="${menu} == 'board'"></span> </a>
                 </li>
             </ul>
         </div>
-
+        <a class="btn btn-secondary mr-2" type="submit" th:href="@{/account/login}" sec:authorize="!isAuthenticated()">로그인</a>
+        <a class="btn btn-secondary mx-2 " type="submit" th:href="@{/account/register}" sec:authorize="!isAuthenticated()">회원가입</a>
+        <form class="d-flex" sec:authorize="isAuthenticated()" th:action="@{/logout}"method="post">
+            <span class="text-white" sec:authentication="name" >사용자</span>
+            <span class="text-white mx-1"sec:authentication="principal.authorities" >권한</span>
+            <button class="btn btn-secondary mx-2" type="submit">logout</button>
+        </form>
     </nav>
     <main role="main" class="container">
 
