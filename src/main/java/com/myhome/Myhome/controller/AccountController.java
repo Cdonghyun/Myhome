@@ -12,15 +12,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/account")
 public class AccountController {
 
-    @Autowired UserService userService;
+    @Autowired
+    UserService userService;
 
     @GetMapping("/login")
-    public String login(){
+    public String login() {
         return "account/login";
     }
 
     @GetMapping("/register")
-    public String register(){
+    public String register() {
         return "account/register";
     }
 

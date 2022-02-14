@@ -2,6 +2,7 @@ package com.myhome.Myhome.model;
 
 
 import lombok.Data;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,8 +18,8 @@ public class Board {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotNull
-    @Size(min=2, max=30, message = "2자 이상 모르나 확마 잘하자")
+    @Size(min = 2, max = 30, message = "2자 이상 모르나 확마 잘하자")
     private String title;
-//    @NotBlank(message = "야 비였잖아 똑바로 하자 어?")
+    //    @NotBlank(message = "야 비였잖아 똑바로 하자 어?")
     private String content;
 }

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html xmlns:th="http://www.thymeleaf.org"  xmlns:sec="http://www.thymeleaf.org/extras/spring-security" >
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head th:fragment="head(title)">
 
@@ -16,41 +16,44 @@
     <title th:text="${title}">Hello, Spring Boot!</title>
 </head>
 
-  <body>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top " th:fragment="menu(menu)">
-        <li class="nav-item ">
-            <a class="navbar-brand" href="#">Spring Boot Tutorial</a></li>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+<body>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top " th:fragment="menu(menu)">
+    <li class="nav-item ">
+        <a class="navbar-brand" href="#">Spring Boot Tutorial</a></li>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
             aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarsExampleDefault" >
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item " th:classappend="${menu == 'home'} ? 'active'">
-                    <a class="nav-link "  href="#" th:href="@{/}">홈 <span class="sr-only" th:if="${menu} == 'home'"></span></a>
-                </li>
-                <li class="nav-item " th:classappend="${menu == 'home'} ? 'active'">
-                    <a class="nav-link " href="#" th:href="@{/board/list}">게시판 <span class="sr-only" th:if="${menu} == 'board'"></span> </a>
-                </li>
-            </ul>
-        </div>
-        <a class="btn btn-secondary mr-2" type="submit" th:href="@{/account/login}" sec:authorize="!isAuthenticated()">로그인</a>
-        <a class="btn btn-secondary mx-2 " type="submit" th:href="@{/account/register}" sec:authorize="!isAuthenticated()">회원가입</a>
-        <form class="d-flex" sec:authorize="isAuthenticated()" th:action="@{/logout}"method="post">
-            <span class="text-white" sec:authentication="name" >사용자</span>
-            <span class="text-white mx-1"sec:authentication="principal.authorities" >권한</span>
-            <button class="btn btn-secondary mx-2" type="submit">logout</button>
-        </form>
-    </nav>
-    <main role="main" class="container">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item " th:classappend="${menu == 'home'} ? 'active'">
+                <a class="nav-link " href="#" th:href="@{/}">홈 <span class="sr-only"
+                                                                     th:if="${menu} == 'home'"></span></a>
+            </li>
+            <li class="nav-item " th:classappend="${menu == 'home'} ? 'active'">
+                <a class="nav-link " href="#" th:href="@{/board/list}">게시판 <span class="sr-only"
+                                                                                 th:if="${menu} == 'board'"></span> </a>
+            </li>
+        </ul>
+    </div>
+    <a class="btn btn-secondary mr-2" type="submit" th:href="@{/account/login}"
+       sec:authorize="!isAuthenticated()">로그인</a>
+    <a class="btn btn-secondary mx-2 " type="submit" th:href="@{/account/register}" sec:authorize="!isAuthenticated()">회원가입</a>
+    <form class="d-flex" sec:authorize="isAuthenticated()" th:action="@{/logout}" method="post">
+        <span class="text-white" sec:authentication="name">사용자</span>
+        <span class="text-white mx-1" sec:authentication="principal.authorities">권한</span>
+        <button class="btn btn-secondary mx-2" type="submit">logout</button>
+    </form>
+</nav>
+<main role="main" class="container">
 
-        <div class="starter-template">
-            <h1>Srping Boot Tutorial</h1>
-            <p class="lead">Spring Boot을 이용해 웹 페이지 제작<br>
-                Spring Security, JPA를 이용해 보안 설정과 데이터 다루기</p>
-        </div>
+    <div class="starter-template">
+        <h1>Srping Boot Tutorial</h1>
+        <p class="lead">Spring Boot을 이용해 웹 페이지 제작<br>
+            Spring Security, JPA를 이용해 보안 설정과 데이터 다루기</p>
+    </div>
 
-    </main>
+</main>
 
-  </body>
+</body>
 </html>

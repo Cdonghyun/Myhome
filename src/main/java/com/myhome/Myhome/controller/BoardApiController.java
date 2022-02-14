@@ -22,8 +22,8 @@ class BoardApiController {
                     @RequestParam(required = false, defaultValue = "") String content) {
         if (StringUtils.isEmpty(title) && StringUtils.isEmpty(content)) {
             return repository.findAll();
-        }else {
-            return repository.findByTitleOrContent(title,content);
+        } else {
+            return repository.findByTitleOrContent(title, content);
         }
     }
 

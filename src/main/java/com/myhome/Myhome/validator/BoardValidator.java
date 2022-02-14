@@ -8,6 +8,7 @@ import org.thymeleaf.util.StringUtils;
 
 @Component
 public class BoardValidator implements Validator {
+
     @Override
     public boolean supports(Class<?> clazz) {
         return Board.class.equals(clazz);
@@ -17,7 +18,7 @@ public class BoardValidator implements Validator {
     public void validate(Object obj, Errors errors) {
         Board b = (Board) obj;
         if (StringUtils.isEmpty(b.getContent())) {
-            errors.rejectValue("content", "key","아니 비였잖아;");
+            errors.rejectValue("content", "key", "아니 비였잖아;");
         }
 
     }
