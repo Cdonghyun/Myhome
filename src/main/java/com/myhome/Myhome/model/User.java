@@ -1,5 +1,6 @@
 package com.myhome.Myhome.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -25,6 +26,11 @@ public class User {
             name = "user_role",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
-//    private List<Role> roles =new ArrayList<>();
-    private Set<Role> roles = new HashSet<>();
+    private Set<Role> roles = new HashSet<>(); //중복 허용 x
+//        private List<Role> roles =new ArrayList<>();
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL,orphanRemoval = true)
+//    private Set<Board> boards = new HashSet<>(); //이거 왜 안돼 ?
+    private List<Board> boards = new ArrayList<>();
+
 }

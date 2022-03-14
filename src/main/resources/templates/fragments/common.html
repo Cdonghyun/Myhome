@@ -36,7 +36,7 @@
             </li>
         </ul>
     </div>
-    <a class="btn btn-secondary mr-2" type="submit" th:href="@{/account/login}"
+    <a class="btn btn-secondary mr-2" style="background-color: lightgreen" type="submit" th:href="@{/account/login}"
        sec:authorize="!isAuthenticated()">로그인</a>
     <a class="btn btn-secondary mx-2 " type="submit" th:href="@{/account/register}" sec:authorize="!isAuthenticated()">회원가입</a>
     <form class="d-flex" sec:authorize="isAuthenticated()" th:action="@{/logout}" method="post">

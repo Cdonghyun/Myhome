@@ -1,5 +1,6 @@
 package com.myhome.Myhome.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,7 +22,8 @@ public class Role {
     private String name;
 
     @ManyToMany(mappedBy = "roles")
-//    private List<User> users;
+    @JsonIgnore
     private Set<User> users;
+//    private List<User> users;
 
 }
